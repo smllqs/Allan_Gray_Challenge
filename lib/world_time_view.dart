@@ -85,6 +85,7 @@ class _WorldTimeViewState extends State<WorldTimeView> {
                 letterspacing: 1,
                 fontWeight: FontWeight.w700,
               ),
+              // Http statistics block
               Padding(
                 padding: const EdgeInsets.only(top: 50),
                 child: Container(
@@ -101,27 +102,25 @@ class _WorldTimeViewState extends State<WorldTimeView> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              UniconsLine.analysis,
-                              color: Colors.grey.shade500,
-                              size: 25,
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
                             BigText(
                               text: 'http statistics',
                               color: Colors.grey.shade400,
                               fontWeight: FontWeight.w400,
                               letterspacing: 2,
                             )
+                            ,
+                        const SizedBox(
+                          width: 5,
+                        ),
+                            Icon(
+                              UniconsLine.analysis,
+                              color: Colors.grey.shade500,
+                              size: 25,
+                            ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 5,
-                        ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 40, right: 40),
+                          padding: const EdgeInsets.only(left: 45, right: 45),
                           child: Divider(
                             height: 12,
                             color: Colors.grey.shade200,
@@ -174,7 +173,7 @@ class _WorldTimeViewState extends State<WorldTimeView> {
                                       color: Colors.grey.shade500,
                                     ),
                                     const SizedBox(
-                                      width: 15,
+                                      height: 5,
                                     ),
                                     BigText(
                                       text:
@@ -195,7 +194,7 @@ class _WorldTimeViewState extends State<WorldTimeView> {
                                       letterspacing: 3,
                                     ),
                                     const SizedBox(
-                                      width: 15,
+                                      height: 5,
                                     ),
                                     BigText(
                                       text:

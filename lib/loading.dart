@@ -17,9 +17,7 @@ class _LoadingState extends State<Loading> {
     // Setting default time zone
     WorldTimeData base = WorldTimeData(url: 'Africa/Johannesburg', location: 'Jo\'burg', flag: 'SA.png');
     await base.getTime();
-    // setState(() {
-    //   time = jhb.time;
-    // });
+
     if (context.mounted) {
       Navigator.pushReplacementNamed(context, '/world_time_view', arguments: {
         'time' : base.time,
