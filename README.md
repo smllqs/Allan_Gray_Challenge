@@ -10,7 +10,8 @@ A Flutter project.
 ## lib
 all the program files are under the lib folder
 
-#Screenshots
+##Screenshots
+
 ![alt text](https://github.com/smllqs/Allan_Gray_Challenge/blob/main/screenshots/screenshot1.png) 
 ![alt text](https://github.com/smllqs/Allan_Gray_Challenge/blob/main/screenshots/screenshot2.png) 
 ![alt text](https://github.com/smllqs/Allan_Gray_Challenge/blob/main/screenshots/screenshot3.png)
