@@ -7,4 +7,7 @@ A Flutter project.
 - The app calculates the HTTP stats i.e response time, bytes received etc. when the http request is made.
 - The Http stats are displayed on the world_time_view page.
 
+## lib
+all the program files are under the lib folder
+
 
