@@ -10,19 +10,25 @@ class WorldTimeData {
   late String location;
   late String flag;
   late bool isDaytime;
+  late HttpStats httpStats;
 
-  WorldTimeData({required this.url, required this.location, required this.flag});
+  WorldTimeData(
+      {required this.url, required this.location, required this.flag});
 
   Future<void> getTime() async {
-    try{
+    try {
       // Measuring time it takes for the http request complete.
-      DateTime start  = DateTime.now();
+      DateTime start = DateTime.now();
       Stopwatch stopwatch = Stopwatch()..start();
-      Response response = await get(Uri.parse('http://worldtimeapi.org/api/timezone/$url'));
+      Response response =
+          await get(Uri.parse('http://worldtimeapi.org/api/timezone/$url'));
       int duration = stopwatch.elapsed.inMilliseconds;
-      DateTime end = DateTime.now();
+      DateTime finish = DateTime.now();
       int bytes = response.bodyBytes.length;
-      HttpStats httpStats = HttpStats(duration: duration, start: start, end: end, bytes: bytes);
+
+      httpStats = HttpStats(
+          duration: duration, start: start, end: finish, bytes: bytes);
+
       Map data = jsonDecode(response.body);
       String datetime = data['datetime'];
       String offset = data['utc_offset'].substring(1, 3);
@@ -32,7 +38,7 @@ class WorldTimeData {
       now = now.add(Duration(hours: int.parse(offset)));
       isDaytime = (now.hour > 6 && now.hour < 19);
       time = DateFormat.jm().format(now);
-    }catch (e){
+    } catch (e) {
       // print("caught error: $e");
       time = "Could not get time data";
     }

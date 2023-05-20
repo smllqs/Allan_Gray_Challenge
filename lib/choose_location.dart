@@ -49,8 +49,8 @@ class _ChooseLocationState extends State<ChooseLocation> {
                         'time' : locations[index].time,
                         'location' : locations[index].location,
                         'flag' : locations[index].flag,
-                        'isDaytime' : locations[index].isDaytime
-                        // Send HttpStats Object from  Here
+                        'isDaytime' : locations[index].isDaytime,
+                        'httpStats' : locations[index].httpStats
                       });
                     }else{
                       Navigator.of(context).pop();
