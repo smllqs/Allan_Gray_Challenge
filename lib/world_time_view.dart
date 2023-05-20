@@ -1,5 +1,6 @@
 import 'package:app_load_testing_ag/widgets/big_text.dart';
 import 'package:flutter/material.dart';
+import 'package:unicons/unicons.dart';
 
 class WorldTimeView extends StatefulWidget {
   const WorldTimeView({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _WorldTimeViewState extends State<WorldTimeView> {
       appBar: AppBar(
         title: BigText(
           text: "World Time Data",
-          color: Colors.white,
+          color: Colors.grey.shade300,
         ),
         backgroundColor: Colors.black,
         centerTitle: true,
@@ -35,7 +36,7 @@ class _WorldTimeViewState extends State<WorldTimeView> {
             image: DecorationImage(
                 image: AssetImage('assets/$bgImage'), fit: BoxFit.cover)),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(0.0, 170.0, 0.0, 0.0),
+          padding: const EdgeInsets.fromLTRB(0.0, 130.0, 0.0, 0.0),
           child: Column(
             children: <Widget>[
               TextButton.icon(
@@ -90,31 +91,44 @@ class _WorldTimeViewState extends State<WorldTimeView> {
                   decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.circular(20)),
-                  height: 390,
+                  height: 420,
                   width: 350,
                   child: Padding(
                     padding:
                         const EdgeInsets.only(top: 10, left: 30, right: 30),
                     child: Column(
                       children: <Widget>[
-                        BigText(
-                          text: 'Http Statistics',
-                          color: Colors.grey.shade400,
-                          fontWeight: FontWeight.w500,
-                          letterspacing: 2,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              UniconsLine.analysis,
+                              color: Colors.grey.shade500,
+                              size: 25,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            BigText(
+                              text: 'http statistics',
+                              color: Colors.grey.shade400,
+                              fontWeight: FontWeight.w400,
+                              letterspacing: 2,
+                            )
+                          ],
                         ),
                         const SizedBox(
                           height: 5,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 25, right: 25),
+                          padding: const EdgeInsets.only(left: 40, right: 40),
                           child: Divider(
                             height: 12,
                             color: Colors.grey.shade200,
                           ),
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -125,39 +139,144 @@ class _WorldTimeViewState extends State<WorldTimeView> {
                                 Icon(
                                   Icons.access_time,
                                   color: Colors.grey.shade500,
-                                  size: 50,
+                                  size: 45,
                                 ),
                                 const SizedBox(height: 10),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.end,
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     BigText(
                                       text: "Response time :",
-                                      fontWeight: FontWeight.w700,
-                                      size: 15,
+                                      fontWeight: FontWeight.w800,
+                                      size: 17,
+                                      letterspacing: 3,
                                       color: Colors.grey.shade500,
                                     ),
-                                    const SizedBox(width: 15,),
+                                    const SizedBox(
+                                      height: 7,
+                                    ),
                                     BigText(
                                       text:
-                                          "${data['httpStats'].duration.toString()} ms",
+                                          "${data['httpStats'].duration.toString()} milliseconds",
                                       size: 15,
                                       color: Colors.grey.shade200,
                                     ),
                                   ],
                                 ),
-                                const SizedBox(height: 15,),
+                                SizedBox(height: 10,),
+                                Column(
+                                  children: [
+                                    BigText(
+                                      text: "Start:",
+                                      fontWeight: FontWeight.w800,
+                                      size: 17,
+                                      letterspacing: 3,
+                                      color: Colors.grey.shade500,
+                                    ),
+                                    const SizedBox(
+                                      width: 15,
+                                    ),
+                                    BigText(
+                                      text:
+                                          '${data['httpStats'].start.toString()}',
+                                      size: 15,
+                                      color: Colors.grey.shade200,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 10,),
+                                Column(
+                                  children: [
+                                    BigText(
+                                      text: "Finished:",
+                                      fontWeight: FontWeight.w800,
+                                      size: 17,
+                                      color: Colors.grey.shade500,
+                                      letterspacing: 3,
+                                    ),
+                                    const SizedBox(
+                                      width: 15,
+                                    ),
+                                    BigText(
+                                      text:
+                                      data['httpStats'].end.toString(),
+                                      size: 15,
+                                      color: Colors.grey.shade200,
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 15,
+                                ),
                                 Icon(
-                                  Icons.ad_units,
+                                  UniconsLine.database,
                                   color: Colors.grey.shade500,
-                                  size: 50,
-                                )
+                                  size: 45,
+                                ),
+                                const SizedBox(height: 10),
+                                Row(
+                                  children: [
+                                    BigText(
+                                      text: "Server :",
+                                      fontWeight: FontWeight.w700,
+                                      size: 15,
+                                      color: Colors.grey.shade500,
+                                    ),
+                                    const SizedBox(
+                                      width: 15,
+                                    ),
+                                    BigText(
+                                      text:
+                                      'worldtimeapi.org',
+                                      size: 15,
+                                      color: Colors.grey.shade200,
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 10),
+                                Row(
+                                  children: [
+                                    BigText(
+                                      text: "Bytes sent:",
+                                      fontWeight: FontWeight.w700,
+                                      size: 15,
+                                      color: Colors.grey.shade500,
+                                    ),
+                                    const SizedBox(
+                                      width: 15,
+                                    ),
+                                    BigText(
+                                      text:
+                                      '0 B',
+                                      size: 15,
+                                      color: Colors.grey.shade200,
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 10),
+                                Row(
+                                  children: [
+                                    BigText(
+                                      text: "Bytes received :",
+                                      fontWeight: FontWeight.w700,
+                                      size: 15,
+                                      color: Colors.grey.shade500,
+                                    ),
+                                    const SizedBox(
+                                      width: 15,
+                                    ),
+                                    BigText(
+                                      text:
+                                          '${data['httpStats'].bytes.toString()} B',
+                                      size: 15,
+                                      color: Colors.grey.shade200,
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                           ],
                         ),
-
                       ],
                     ),
                   ),

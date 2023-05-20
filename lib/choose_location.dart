@@ -1,4 +1,5 @@
 import 'package:app_load_testing_ag/services/world_time_data.dart';
+import 'package:app_load_testing_ag/widgets/big_text.dart';
 import 'package:flutter/material.dart';
 
 class ChooseLocation extends StatefulWidget {
@@ -30,8 +31,8 @@ class _ChooseLocationState extends State<ChooseLocation> {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade900,
-        title: const Text('Choose a Location'),
+        backgroundColor: Colors.black,
+        title: BigText(text : 'Choose a Location', color: Colors.grey.shade300,),
         centerTitle: true,
         elevation: 0,
       ),
